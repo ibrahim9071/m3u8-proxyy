@@ -1,0 +1,48 @@
+{
+  "version": 2,
+  "functions": {
+    "app/**": {
+      "runtime": "edge"
+    }
+  },
+  "headers": [
+    {
+      "source": "/(.*)\\.m3u8",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Access-Control-Allow-Methods",
+          "value": "GET, HEAD, OPTIONS"
+        },
+        {
+          "key": "Access-Control-Allow-Headers",
+          "value": "*"
+        },
+        {
+          "key": "Content-Type",
+          "value": "application/vnd.apple.mpegurl"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=10, stale-while-revalidate=59"
+        }
+      ]
+    },
+    {
+      "source": "/(.*)\\.ts",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        },
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=3600"
+        }
+      ]
+    }
+  ]
+}
